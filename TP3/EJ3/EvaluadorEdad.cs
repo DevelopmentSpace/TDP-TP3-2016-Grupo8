@@ -19,8 +19,8 @@ namespace EJ3
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            //int edad = (DateTime.Now - pSolicitud.Cliente.FechaNacimiento);
-            //return ()
+            int edad = Date.EdadActual(pSolicitud.Cliente.FechaNacimiento);
+            return (edad >= this.iEdadMinima) && (edad <= this.iEdadMaxima);
         }
 
     }

@@ -8,7 +8,7 @@ namespace EJ3
 {
     class EvaluadorAntiguedadLaboral : IEvaluador
     {
-
+        //Expresada en meses
         int iAntiguedadMinima;
 
         public EvaluadorAntiguedadLaboral(int pAntiguedadMinima)
@@ -18,7 +18,7 @@ namespace EJ3
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            return (DateTime.Now - pSolicitud.Cliente.Empleo.FechaIngreso).Days >= (this.iAntiguedadMinima*365);//REVISAR 
+            return Date.DiferenciaEnMeses(DateTime.Today , pSolicitud.Cliente.Empleo.FechaIngreso) >= (this.iAntiguedadMinima);
         }
     }
 }
