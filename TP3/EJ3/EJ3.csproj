@@ -47,6 +47,10 @@
     <Compile Include="Date.cs" />
     <Compile Include="Empleo.cs" />
     <Compile Include="EvaluadorAntiguedadLaboral.cs" />
+    <Compile Include="EvaluadorCompuesto.cs" />
+    <Compile Include="EvaluadorMonto.cs" />
+    <Compile Include="EvaluadorSueldo.cs" />
+    <Compile Include="EvaluadorCantidadCuotas.cs" />
     <Compile Include="EvaluadorEdad.cs" />
     <Compile Include="GestorPrestamos.cs" />
     <Compile Include="IEvaluador.cs" />

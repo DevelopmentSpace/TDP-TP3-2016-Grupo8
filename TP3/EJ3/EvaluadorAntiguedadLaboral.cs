@@ -11,6 +11,8 @@ namespace EJ3
         //Expresada en meses
         int iAntiguedadMinima;
 
+
+
         public EvaluadorAntiguedadLaboral(int pAntiguedadMinima)
         {
             this.iAntiguedadMinima = pAntiguedadMinima;
