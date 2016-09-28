@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ3
 {
-    class EvaluadorEdad
+    class EvaluadorEdad : IEvaluador
     {
 
         int iEdadMinima, iEdadMaxima;
