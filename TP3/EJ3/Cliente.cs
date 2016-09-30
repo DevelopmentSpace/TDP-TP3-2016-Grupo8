@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ3
 {
-    class Cliente
+    public class Cliente
     {
 
         String iNombre, iApellido;

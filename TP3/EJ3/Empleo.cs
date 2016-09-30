@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ3
 {
-    class Empleo
+    public class Empleo
     {
 
         double iSueldo;

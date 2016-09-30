@@ -17,7 +17,7 @@ namespace EJ3
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            return pSolicitud.CantidadCuotas >= (this.iCantidadMaximaCuotas);
+            return (pSolicitud.CantidadCuotas) <= (this.iCantidadMaximaCuotas);
         }
     }
 }

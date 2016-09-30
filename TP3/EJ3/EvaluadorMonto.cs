@@ -8,16 +8,16 @@ namespace EJ3
 {
     class EvaluadorMonto : IEvaluador
     {
-        double iMontoMinimo;
+        double iMontoMaximo;
 
         public EvaluadorMonto(double pMontoMinimo)
         {
-            this.iMontoMinimo = pMontoMinimo;
+            this.iMontoMaximo = pMontoMinimo;
         }
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            return  (pSolicitud.Monto) >= (this.iMontoMinimo);
+            return  (pSolicitud.Monto) <= (this.iMontoMaximo);
         }
     }
 }

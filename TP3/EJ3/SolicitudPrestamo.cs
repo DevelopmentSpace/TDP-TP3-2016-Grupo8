@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ3
 {
-    class SolicitudPrestamo
+    public class SolicitudPrestamo
     {
 
         double iMonto;

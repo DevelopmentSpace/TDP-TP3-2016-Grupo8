@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace EJ3
 {
-    class GestorPrestamos
+    public class GestorPrestamos
     {
 
-        Dictionary<TipoCliente, IEvaluador> iEvaluadoresPorCliente;
+        Dictionary<TipoCliente, IEvaluador> iEvaluadoresPorCliente = new Dictionary<TipoCliente, IEvaluador> { };
 
         public GestorPrestamos()
         {
@@ -21,7 +21,7 @@ namespace EJ3
 
         }
 
-        public IEvaluador EvaluadorNoCliente()
+        private IEvaluador EvaluadorNoCliente()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
 
@@ -32,7 +32,7 @@ namespace EJ3
             return eval;
         }
 
-        public IEvaluador EvaluadorCliente()
+        private IEvaluador EvaluadorCliente()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
 
@@ -43,7 +43,7 @@ namespace EJ3
             return eval;
         }
 
-        public IEvaluador EvaluadorClienteGold()
+        private IEvaluador EvaluadorClienteGold()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
 
@@ -54,7 +54,7 @@ namespace EJ3
             return eval;
         }
 
-        public IEvaluador EvaluadorClientePlatinum()
+        private IEvaluador EvaluadorClientePlatinum()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
 
@@ -67,7 +67,7 @@ namespace EJ3
 
 
 
-        public IEvaluador EvaluadorGeneral()
+        private IEvaluador EvaluadorGeneral()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
 
