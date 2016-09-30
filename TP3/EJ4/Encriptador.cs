@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace EJ4
 {
-    class Encriptador
+    abstract class Encriptador : IEncriptador
     {
+        string iNombre;
+
+        public Encriptador(string pNombre)
+        {
+            this.iNombre = pNombre;
+        }
+
+
+        public String Nombre
+        {
+            get { return this.iNombre; }
+            set { this.iNombre = value; }
+        }
+
+        public abstract string Encriptar(string pCadena);
+        public abstract string Desencriptar(string pCadena);
+
     }
 }
