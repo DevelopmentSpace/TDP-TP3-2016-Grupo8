@@ -9,33 +9,54 @@ namespace EJ3
     class SucursalPrestamos
     {
         GestorPrestamos iGestorPrestamos = new GestorPrestamos();
-        AdmClientes iAdmClientes = new AdmClientes();
 
-        public SucursalPrestamos(AdmClientes pAdmClientes)
+        Dictionary <int, Cliente> Clientes = new Dictionary<int, Cliente> {};
+
+        public SucursalPrestamos()
         {
-            iAdmClientes = pAdmClientes;
+            Clientes.Add(1, new Cliente("Manuel", "Chichi", new DateTime(1996,06,20), new Empleo(7500, new DateTime(2015, 02, 17))));
+            Clientes.Add(2, new Cliente("Agustin", "Caire", new DateTime(1996, 06,6), new Empleo(15500, new DateTime(2014, 03, 17))));
+            Clientes.Add(3, new Cliente("Juan Pablo", "Venditti", new DateTime(1996, 05, 28), new Empleo(4500, new DateTime(2016, 06, 10))));
+            Clientes.Add(4, new Cliente("Lautaro", "Balsanyaque", new DateTime(1930, 05, 22), new Empleo(8500, new DateTime(1996, 06, 21))));
+            Clientes.Add(5, new Cliente("Lautaro", "Zapata", new DateTime(2006, 01, 20), new Empleo(10000, new DateTime(2009, 06, 21))));
+            Clientes.Add(6, new Cliente("Marcos", "Massana", new DateTime(1990, 12, 20), new Empleo(500, new DateTime(1996, 06, 21))));
+            Clientes.Add(7, new Cliente("Eric", "Ticak", new DateTime(1995, 02, 27), new Empleo(11000, new DateTime(2016, 07, 21))));
+
+            Clientes[1].TipoCliente = TipoCliente.Cliente;
+            Clientes[2].TipoCliente = TipoCliente.ClienteGold;
+            Clientes[3].TipoCliente = TipoCliente.Cliente;
+            Clientes[5].TipoCliente = TipoCliente.ClientePlatinum;
+            Clientes[6].TipoCliente = TipoCliente.ClienteGold;
         }
 
-        public bool SolicitarPrestamo(string pNombre, string pApellido,double pMonto,int pCantidadCuotas)
+        public bool SolicitarPrestamo(int id,double pMonto,int pCantidadCuotas)
         {
-            Cliente cliente;
+            SolicitudPrestamo solicitud = new SolicitudPrestamo(Clientes[id], pMonto, pCantidadCuotas);
 
-            try
-            {
-               cliente = iAdmClientes.BuscarCliente(pNombre, pApellido);
-            }
-            catch (Exception e)
-            {
-                Console.Write(e.Message);
-                throw;
-            }
+            return iGestorPrestamos.EsValida(solicitud);            
+        }
 
-            SolicitudPrestamo solicitud = new SolicitudPrestamo(cliente, pMonto, pCantidadCuotas);
-            if (iGestorPrestamos.EsValida(solicitud))
-                return true;
-            return false;
-            
-            
+        public List<Dictionary<string,string>> ObtenerClientes()
+        {
+            int i = 1;
+            List<Dictionary<string, string>> l = new List<Dictionary<string, string>>();
+
+            foreach (var cliente in Clientes)
+            {
+                
+                Dictionary<string, string> d = new Dictionary<string, string>();
+                d.Add("id", i.ToString());
+                d.Add("nombre",cliente.Value.Nombre);
+                d.Add("apellido", cliente.Value.Apellido);
+
+                i++;
+
+                l.Add(d);
+
+            }
+            return l;
+
+
         }
     }
 }
