@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ4
 {
-    abstract class Encriptador : IEncriptador
+    public abstract class Encriptador : IEncriptador
     {
         string iNombre;
 

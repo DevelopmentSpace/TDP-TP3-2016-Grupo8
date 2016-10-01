@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 
 namespace EJ4
 {
-    class EncriptadorAES : Encriptador
+   public class EncriptadorAES : Encriptador
     {
         public EncriptadorAES():base("AES")
         {
@@ -16,75 +16,56 @@ namespace EJ4
 
         public override string Encriptar(string pCadena)
         {
-            return EncryptStringToString(pCadena); 
+            return EncriptarTexto(pCadena); 
         }
 
         public override string Desencriptar(string pCadena)
         {
-            return DecryptStringFromString(pCadena);
+            return DesencriptarTexto(pCadena);
         }
 
-        static string EncryptStringToString(string plainText)
+        public static string EncriptarTexto(string clearText)
         {
-            byte[] encrypted;
-            // Create an RijndaelManaged object
-            // with the specified key and IV.
-            using (RijndaelManaged rijAlg = new RijndaelManaged())
+            string EncryptionKey = "abc123";
+            byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+            using (Aes encryptor = Aes.Create())
             {
-                
-
-                // Create a decrytor to perform the stream transform.
-                ICryptoTransform encryptor = rijAlg.CreateEncryptor();
-
-                // Create the streams used for encryption.
-                using (MemoryStream msEncrypt = new MemoryStream())
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
                     {
-                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
-                        {
-
-                            //Write all data to the stream.
-                            swEncrypt.Write(plainText);
-                        }
-                        encrypted = msEncrypt.ToArray();
+                        cs.Write(clearBytes, 0, clearBytes.Length);
+                        cs.Close();
                     }
+                    clearText = Convert.ToBase64String(ms.ToArray());
                 }
             }
-            return Convert.ToBase64String(encrypted);
-
+            return clearText;
         }
-        static string DecryptStringFromString(string cipherText)
+        public static string DesencriptarTexto(string cipherText)
         {
-            byte[] aBytes = Encoding.ASCII.GetBytes(cipherText);
-            string plaintext = null;
-
-            // Create an RijndaelManaged object
-            // with the specified key and IV.
-            using (RijndaelManaged rijAlg = new RijndaelManaged())
+            string EncryptionKey = "abc123";
+            cipherText = cipherText.Replace(" ", "+");
+            byte[] cipherBytes = Convert.FromBase64String(cipherText);
+            using (Aes encryptor = Aes.Create())
             {
-
-                // Create a decrytor to perform the stream transform.
-                ICryptoTransform decryptor = rijAlg.CreateDecryptor();
-
-                // Create the streams used for decryption.
-                using (MemoryStream msDecrypt = new MemoryStream(aBytes))
+                Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                encryptor.Key = pdb.GetBytes(32);
+                encryptor.IV = pdb.GetBytes(16);
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                    using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateDecryptor(), CryptoStreamMode.Write))
                     {
-                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
-                        {
-
-                            plaintext = srDecrypt.ReadToEnd();
-                        }
+                        cs.Write(cipherBytes, 0, cipherBytes.Length);
+                        cs.Close();
                     }
+                    cipherText = Encoding.Unicode.GetString(ms.ToArray());
                 }
-
             }
-
-            return plaintext;
-
+            return cipherText;
         }
-
     }
 }
