@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CifradorString.cs" />
     <Compile Include="Encriptador.cs" />
     <Compile Include="EncriptadorAES.cs" />
     <Compile Include="EncriptadorCesar.cs" />

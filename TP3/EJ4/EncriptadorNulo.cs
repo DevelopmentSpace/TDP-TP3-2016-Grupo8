@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace EJ4
 {
-    class EncriptadorNulo
+    class EncriptadorNulo : Encriptador
     {
+        public EncriptadorNulo():base("Null")
+        {
+        }
+
+        public override string Encriptar(string pCadena)
+        {
+            return pCadena;
+        }
+
+        public override string Desencriptar(string pCadena)
+        {
+            return pCadena;
+        }
+
     }
 }
