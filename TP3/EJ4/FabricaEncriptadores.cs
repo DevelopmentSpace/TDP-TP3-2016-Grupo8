@@ -8,14 +8,18 @@ namespace EJ4
 {
     class FabricaEncriptadores
     {
-        FabricaEncriptadores cInstancia;
+
+        static readonly Lazy<FabricaEncriptadores> cInstancia = new Lazy<FabricaEncriptadores>(() => new FabricaEncriptadores());
+
+        static public FabricaEncriptadores Instancia
+        {
+            get { return cInstancia.Value; }
+        }
 
         Dictionary<string, IEncriptador> iEncriptadores;
 
-
         private FabricaEncriptadores()
         {
-            cInstancia = new FabricaEncriptadores();
             iEncriptadores.Add("César", new EncriptadorCesar(12) );
             iEncriptadores.Add("AES", new EncriptadorAES() );
             iEncriptadores.Add("Null", new EncriptadorNulo());
@@ -23,15 +27,10 @@ namespace EJ4
 
         public IEncriptador GetEncriptador(string nombre)
         {
-            if (iEncriptadores.ContainsKey(nombre))
+            if (!iEncriptadores.ContainsKey(nombre))
                 return iEncriptadores["Null"];
             return iEncriptadores[nombre];
         }
-
-        public FabricaEncriptadores Instancia
-            {
-            get {return this.cInstancia;}
-            }
 
 
 

@@ -8,11 +8,10 @@ namespace EJ4_Prueba
     public class EncriptadorAES
     {
         [TestMethod]
-        public void PruebaAES1()
+        public void PruebaAESEncYDes()
         {
 
             string cadena = "Hola, mi nombre es Ricardo";
-            string cadenaCifradaEsperada = "JdyvCxIrOgnFf27HA5qiQAgrbeXEz89eDVOjLxNHKPoYkUlpi0H09Xq25cflo3ms07Ta+Ub4u1++cFdx9HfB8Q";
 
             string cadenaCifrada = new EJ4.EncriptadorAES().Encriptar(cadena);
 
@@ -20,7 +19,36 @@ namespace EJ4_Prueba
 
 
             Assert.AreEqual(cadena, cadenaDescifrada);
-            //Assert.AreEqual(cadenaCifrada, cadenaCifradaEsperada);
+
+
+        }
+
+        [TestMethod]
+        public void PruebaAESEnc()
+        {
+
+            string cadena = "Hola, mi nombre es Ricardo";
+
+            string cadenaCifrada = new EJ4.EncriptadorAES().Encriptar(cadena);
+
+            string cadenaEsperada = "fR1ksuaKSXbCkBHjC+16M0xaIHR1piYqT06MlkGaLOp7bfmi9Y7fz4huiP8LA8C2sIpNpLr+MXBMYGTYDO54jg==";
+
+            Assert.AreEqual(cadenaCifrada, cadenaEsperada);
+
+
+        }
+
+        [TestMethod]
+        public void PruebaAESDes()
+        {
+
+            string cadena = "fR1ksuaKSXbCkBHjC+16M0xaIHR1piYqT06MlkGaLOp7bfmi9Y7fz4huiP8LA8C2sIpNpLr+MXBMYGTYDO54jg==";
+
+            string cadenaDescifrada = new EJ4.EncriptadorAES().Desencriptar(cadena);
+
+            string cadenaEsperada = "Hola, mi nombre es Ricardo";
+
+            Assert.AreEqual(cadenaDescifrada, cadenaEsperada);
 
 
         }
