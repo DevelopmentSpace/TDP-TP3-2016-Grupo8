@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ4
 {
-    class EncriptadorCesar : Encriptador
+    public class EncriptadorCesar : Encriptador
     {
 
         private static char[] cAlfabeto ="abcdefghijklmnñopqrstuvwxyz".ToCharArray();
@@ -14,7 +14,7 @@ namespace EJ4
 
         private int iDesplazamiento;
 
-        public EncriptadorCesar(int pDesplazamiento):base("Cesar")
+        public EncriptadorCesar(int pDesplazamiento):base("César")
         {
             this.iDesplazamiento = pDesplazamiento;
         }
@@ -70,7 +70,10 @@ namespace EJ4
         private char DesencriptarLetra(char pLetra)
         {
             int i = Array.IndexOf(cAlfabeto, pLetra);
-            return cAlfabeto[(i - iDesplazamiento) % cN];
+            int iN = (i - iDesplazamiento) % cN;
+            if (iN < 0)
+                iN += cN;
+            return cAlfabeto[iN];
         }
 
 
