@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Criptografia.cs" />
     <Compile Include="Encriptador.cs" />
     <Compile Include="EncriptadorCesar.cs" />
     <Compile Include="EncriptadorAES.cs" />
