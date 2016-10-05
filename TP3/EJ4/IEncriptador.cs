@@ -8,5 +8,7 @@ namespace EJ4
 {
     interface IEncriptador
     {
+        string Encriptar(string pCadena);
+        string Desencriptar(string pCadena);
     }
 }

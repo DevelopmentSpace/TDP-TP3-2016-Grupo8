@@ -16,10 +16,11 @@ namespace EJ4
             get { return cInstancia.Value; }
         }
 
-        Dictionary<string, IEncriptador> iEncriptadores;
+        Dictionary<string, IEncriptador> iEncriptadores = new Dictionary<string, IEncriptador> { };
 
         private FabricaEncriptadores()
         {
+
             iEncriptadores.Add("César", new EncriptadorCesar(12) );
             iEncriptadores.Add("AES", new EncriptadorAES() );
             iEncriptadores.Add("Null", new EncriptadorNulo());
