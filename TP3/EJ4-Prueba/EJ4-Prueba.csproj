@@ -50,7 +50,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Encriptador.cs" />
+    <Compile Include="EncriptadorAES.cs" />
+    <Compile Include="EncriptadorCesar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
