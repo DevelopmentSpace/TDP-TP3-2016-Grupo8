@@ -51,7 +51,7 @@ namespace EJ4
         static void MenuEncriptar()
         {
             Console.Clear();
-            Console.Write("Ingrese el nombre del encriptador a usar (César - AES - Null): ");
+            Console.Write("Ingrese el nombre del encriptador a usar (César - AES - Null - Clasico): ");
             string nombreEnc = Console.ReadLine();
             Console.Write("Ingrese la cadena: ");
             string cadena = Console.ReadLine();

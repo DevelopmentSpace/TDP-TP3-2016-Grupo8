@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="EncriptadorAES.cs" />
     <Compile Include="EncriptadorCesar.cs" />
+    <Compile Include="EncriptadorClasico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

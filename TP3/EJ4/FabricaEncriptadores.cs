@@ -24,6 +24,7 @@ namespace EJ4
             iEncriptadores.Add("César", new EncriptadorCesar(12) );
             iEncriptadores.Add("AES", new EncriptadorAES() );
             iEncriptadores.Add("Null", new EncriptadorNulo());
+            iEncriptadores.Add("Clasico", new EncriptadorClasico());
         }
 
         public IEncriptador GetEncriptador(string nombre)

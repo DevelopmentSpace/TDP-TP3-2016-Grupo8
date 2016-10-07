@@ -47,6 +47,7 @@
     <Compile Include="Encriptador.cs" />
     <Compile Include="EncriptadorCesar.cs" />
     <Compile Include="EncriptadorAES.cs" />
+    <Compile Include="EncriptadorClasico.cs" />
     <Compile Include="EncriptadorNulo.cs" />
     <Compile Include="FabricaEncriptadores.cs" />
     <Compile Include="IEncriptador.cs" />
