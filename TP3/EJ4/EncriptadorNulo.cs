@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EJ4
 {
-    class EncriptadorNulo : Encriptador
+    sealed class EncriptadorNulo : Encriptador
     {
         public EncriptadorNulo():base("Null")
         {

@@ -26,20 +26,30 @@ namespace EJ4
 
         public static string EncriptarTexto(string clearText)
         {
+            //Se crea una clave de encriptacion y se obtienen los bytes de la cadena.
             string EncryptionKey = "abc123";
             byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
+
+            //Usando la clase AES, se crea un ecriptador.
             using (Aes encryptor = Aes.Create())
             {
+                //Utilizando la clave de encriptacion crea un conjunto de bytes aleatorios.
                 Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });
+                //Le asigna al encriptador los valores aleatorios (en formato byte) a la Key y al IV.
                 encryptor.Key = pdb.GetBytes(32);
                 encryptor.IV = pdb.GetBytes(16);
+
+                //Se crea un flujo de memoria.
                 using (MemoryStream ms = new MemoryStream())
-                {
+                { 
+                    //Se crea un flujo de memoria encriptado, utilizando el encriptador y se lo asigna al modo escribir.
                     using (CryptoStream cs = new CryptoStream(ms, encryptor.CreateEncryptor(), CryptoStreamMode.Write))
                     {
+                        //Escribe en el flujo encriptado, los bytes de la palabra.
                         cs.Write(clearBytes, 0, clearBytes.Length);
                         cs.Close();
                     }
+                    //Obtiene el texto encriptado en bytes y lo transforma a un string.
                     clearText = Convert.ToBase64String(ms.ToArray());
                 }
             }
