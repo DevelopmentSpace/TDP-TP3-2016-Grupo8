@@ -13,13 +13,14 @@ namespace EJ3
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            foreach (IEvaluador evaluador in this.iEvaluadores)
+            IEnumerator<IEvaluador> enumerador = this.iEvaluadores.GetEnumerator();
+            bool esValida = true;
+            while (esValida && enumerador.MoveNext())
             {
-                if (!evaluador.EsValida(pSolicitud))
-                    return false;
+                esValida = enumerador.Current.EsValida(pSolicitud);
             }
+            return esValida;
 
-            return true;
         }
 
         public void AgregarEvaluador(IEvaluador pEvaluador)
