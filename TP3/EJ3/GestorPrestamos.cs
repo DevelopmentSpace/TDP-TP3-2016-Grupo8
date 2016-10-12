@@ -80,7 +80,14 @@ namespace EJ3
 
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
-            return iEvaluadoresPorCliente[pSolicitud.Cliente.TipoCliente].EsValida(pSolicitud);
+            bool esValida = false;
+
+            if (this.iEvaluadoresPorCliente.ContainsKey(pSolicitud.Cliente.TipoCliente))
+            {
+                esValida = iEvaluadoresPorCliente[pSolicitud.Cliente.TipoCliente].EsValida(pSolicitud);
+            }
+
+            return esValida;
         }
     }
 }
