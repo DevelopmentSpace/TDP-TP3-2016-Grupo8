@@ -11,16 +11,32 @@ namespace EJ4
 
         FabricaEncriptadores iFabEnc;
 
+
+        /// <summary>
+        /// Constructor de la clase criptografia. Asigna una instancia de la fabrica de encriptadores.
+        /// </summary>
         public Criptografia()
         {
             iFabEnc = FabricaEncriptadores.Instancia;
         }
 
+        /// <summary>
+        /// Encripta una cadena con el encriptador que se seleccione.
+        /// </summary>
+        /// <param name="pCadena">Cadena</param>
+        /// <param name="pNombreEncriptador">Nombre del encriptador</param>
+        /// <returns></returns>
         public string Encriptar(string pCadena, string pNombreEncriptador)
         {
             return iFabEnc.GetEncriptador(pNombreEncriptador).Encriptar(pCadena);
         }
 
+        /// <summary>
+        /// Desencripta una cadena con el encriptador que se seleccione.
+        /// </summary>
+        /// <param name="pCadena">Cadena</param>
+        /// <param name="pNombreEncriptador">Nombre del encriptador</param>
+        /// <returns></returns>
         public string Desencriptar(string pCadena, string pNombreEncriptador)
         {
             return iFabEnc.GetEncriptador(pNombreEncriptador).Desencriptar(pCadena);

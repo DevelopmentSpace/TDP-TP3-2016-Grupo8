@@ -26,7 +26,7 @@ namespace EJ4
 
         public static string EncriptarTexto(string clearText)
         {
-            //Se crea una clave de encriptacion y se obtienen los bytes de la cadena.
+            //Se crea una clave de encriptacion y se obtienen los bytes de la misma.
             string EncryptionKey = "abc123";
             byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
 
@@ -57,9 +57,11 @@ namespace EJ4
         }
         public static string DesencriptarTexto(string cipherText)
         {
+
             string EncryptionKey = "abc123";
             cipherText = cipherText.Replace(" ", "+");
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
+
             using (Aes encryptor = Aes.Create())
             {
                 Rfc2898DeriveBytes pdb = new Rfc2898DeriveBytes(EncryptionKey, new byte[] { 0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d, 0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76 });

@@ -15,7 +15,7 @@ namespace EJ4
         {
 
             char opt;
-
+            //Menu principal
             do
             {
                 Console.Clear();
@@ -48,6 +48,9 @@ namespace EJ4
 
         }
 
+        /// <summary>
+        /// Menu principal para encriptar.
+        /// </summary>
         static void MenuEncriptar()
         {
             Console.Clear();
@@ -62,6 +65,9 @@ namespace EJ4
             Console.ReadKey();
         }
 
+        /// <summary>
+        /// Menu principal para desencriptar.
+        /// </summary>
         static void MenuDesencriptar()
         {
             Console.Clear();

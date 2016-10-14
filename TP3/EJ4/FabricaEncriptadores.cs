@@ -8,7 +8,7 @@ namespace EJ4
 {
     class FabricaEncriptadores
     {
-
+        //Utilizamos el patron singleton para la fabrica de encriptadores.
         static readonly Lazy<FabricaEncriptadores> cInstancia = new Lazy<FabricaEncriptadores>(() => new FabricaEncriptadores());
 
         static public FabricaEncriptadores Instancia
@@ -18,6 +18,9 @@ namespace EJ4
 
         Dictionary<string, IEncriptador> iEncriptadores = new Dictionary<string, IEncriptador> { };
 
+        /// <summary>
+        /// Constructor de la fabrica de encriptadores que agrega todos los encriptadores al diccionario de la clase
+        /// </summary>
         private FabricaEncriptadores()
         {
 
@@ -27,6 +30,11 @@ namespace EJ4
             iEncriptadores.Add("Clasico", new EncriptadorClasico());
         }
 
+        /// <summary>
+        /// Obtiene el encriptador solicitado.
+        /// </summary>
+        /// <param name="nombre">Nombre del encriptador.</param>
+        /// <returns>Encriptador solicitado</returns>
         public IEncriptador GetEncriptador(string nombre)
         {
             if (!iEncriptadores.ContainsKey(nombre))
