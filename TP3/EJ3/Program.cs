@@ -21,6 +21,8 @@ namespace EJ3
             while(true)
             {
                 Console.Clear();
+
+                //Lista todos los clientes. Estos ya estan establecidos en el constructor de la sucursal.
                 Console.WriteLine("Lista clientes:");
 
                 foreach (var dir in sucursal.ObtenerClientes())
@@ -28,6 +30,7 @@ namespace EJ3
                     Console.WriteLine(dir["id"] + " - " + dir["nombre"] + " " + dir["apellido"]);
                 }
 
+                //Solicitud de prestamo.
                 Console.WriteLine();
                 Console.Write("Ingrese la id del cliente (0 para salir): ");
                 int.TryParse(Console.ReadLine(), out id);
@@ -40,6 +43,7 @@ namespace EJ3
                 Console.Write("Ingrese la cantidad de cuotas de la solicitud de prestamo: ");
                 int.TryParse(Console.ReadLine(), out cantidadMeses);
 
+                //Comprobacion.
                 if (sucursal.SolicitarPrestamo(id, monto, cantidadMeses))
                     Console.WriteLine("SOLICITUD VALIDA");
                 else

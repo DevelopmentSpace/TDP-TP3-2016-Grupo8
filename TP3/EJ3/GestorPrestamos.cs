@@ -11,6 +11,9 @@ namespace EJ3
 
         Dictionary<TipoCliente, IEvaluador> iEvaluadoresPorCliente = new Dictionary<TipoCliente, IEvaluador> { };
 
+        /// <summary>
+        /// Constructor del gestor de prestamos 
+        /// </summary>
         public GestorPrestamos()
         {
             //Agregamos evaluadores para cada cliente
@@ -21,6 +24,10 @@ namespace EJ3
 
         }
 
+        /// <summary>
+        /// Crea los evaluadores de un no cliente.
+        /// </summary>
+        /// <returns>Evaluadores de no cliente</returns>
         private IEvaluador EvaluadorNoCliente()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
@@ -32,6 +39,10 @@ namespace EJ3
             return eval;
         }
 
+        /// <summary>
+        /// Crea los evaluadores de un cliente.
+        /// </summary>
+        /// <returns>Evaluadores de cliente</returns>
         private IEvaluador EvaluadorCliente()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
@@ -43,6 +54,10 @@ namespace EJ3
             return eval;
         }
 
+        /// <summary>
+        /// Crea los evaluadores de un cliente gold.
+        /// </summary>
+        /// <returns>Evaluadores de cliente gold</returns>
         private IEvaluador EvaluadorClienteGold()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
@@ -54,6 +69,10 @@ namespace EJ3
             return eval;
         }
 
+        /// <summary>
+        /// Crea los evaluadores de un cliente platinum.
+        /// </summary>
+        /// <returns>Evaluadores de cliente platinum</returns>
         private IEvaluador EvaluadorClientePlatinum()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
@@ -66,7 +85,10 @@ namespace EJ3
         }
 
 
-
+        /// <summary>
+        /// Crea los evaladurores para todos.
+        /// </summary>
+        /// <returns>Evaluadores generales</returns>
         private IEvaluador EvaluadorGeneral()
         {
             EvaluadorCompuesto eval = new EvaluadorCompuesto();
@@ -78,6 +100,11 @@ namespace EJ3
             return eval;
         }
 
+        /// <summary>
+        /// Comprueba todos los evaluadores de el tipo de cliente sean validos.
+        /// </summary>
+        /// <param name="pSolicitud">Solicitud de prestamo</param>
+        /// <returns>True si son todos validos. False si al menos uno no es verdadero.</returns>
         public bool EsValida(SolicitudPrestamo pSolicitud)
         {
             bool esValida = false;
