@@ -8,6 +8,9 @@ namespace EJ1
 {
     public class Perro : Animal 
     {
+        /// <summary>
+        /// Hace ruido de perro.
+        /// </summary>
         public override void HacerRuido()
         {
             Console.WriteLine("Guau");

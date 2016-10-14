@@ -10,11 +10,13 @@ namespace EJ1
     {
         static void Main(string[] args)
         {
+            //Animales se carga con un perro y un gato.
             Animal[] animales = { new Perro(), new Gato() };
             Veterinaria veterinaria = new Veterinaria();
 
 
             char opc;
+      
             do
             {
                 Console.Clear();
@@ -36,11 +38,8 @@ namespace EJ1
                             break;
                         }
                 }
-
             }
             while (opc != '0');
-            
-
         }
     }
 }

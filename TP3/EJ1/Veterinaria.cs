@@ -8,6 +8,10 @@ namespace EJ1
 {
     public class Veterinaria
     {
+        /// <summary>
+        ///  Por cada objeto animal en el vector se hace que este haga ruido.
+        /// </summary>
+        /// <param name="pAnimales"> Vector con objetos de la clase animal</param>
         public void AceptarAnimales(Animal[] pAnimales)
         {
             foreach (Animal animal in pAnimales)
