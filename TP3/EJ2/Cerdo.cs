@@ -10,6 +10,9 @@ namespace EJ2
 {
     class Cerdo:Animal
     {
+        /// <summary>
+        /// Hace el ruido de un cerdo.
+        /// </summary>
         public override void HacerRuido()
         {
             Console.WriteLine("Oink");

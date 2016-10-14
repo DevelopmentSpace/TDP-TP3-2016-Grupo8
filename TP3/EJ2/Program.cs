@@ -12,6 +12,7 @@ namespace EJ2
         {
             static void Main(string[] args)
             {
+                //En el vector se agregan tres animales. La vaca, el gallo y el cerdo.
                 Animal[] animales = { new Perro(), new Gato(), new Vaca(), new Gallo(), new Cerdo() };
                 Veterinaria veterinaria = new Veterinaria();
 
