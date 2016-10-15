@@ -42,11 +42,13 @@ namespace EJ4
 
         private string EncriptarLetra(char pLetra)
         {
+            ///Consiste en reemplazar una letra con un numero de dos cifras.
             return (Array.IndexOf(cAlfabeto, pLetra) * 3 + 10).ToString();
         }
 
         private string DesencriptarLetra(string pNumero)
         {
+            //Consiste en reemplazar un numero de dos cifras por una letra
             int num;
             int.TryParse(pNumero, out num);
 
@@ -55,6 +57,7 @@ namespace EJ4
 
         private string EncriptarNumero(char pNumero)
         {
+            //Consiste en reemplazar un numero por una letra del alfabeto
             int num;
             int.TryParse(pNumero.ToString(), out num);
 
@@ -63,6 +66,7 @@ namespace EJ4
 
         private string DesencriptarNumero(char pLetra)
         {
+            // Consiste en reemplazar una letra por un numero.
             return (Array.IndexOf(cAlfabeto, pLetra) / 2).ToString();
         }
 
@@ -82,6 +86,7 @@ namespace EJ4
                 if (Char.IsLetter(caracter))
                     desencriptada += DesencriptarNumero(caracter);
                 else if (Char.IsDigit(caracter))
+                    //Hay que comprobar que sea el segundo numero antes de hacer la desencriptacion
                     if(segundoNumero)
                     {
                         desencriptada += DesencriptarLetra(primerNumero.ToString() + caracter);
