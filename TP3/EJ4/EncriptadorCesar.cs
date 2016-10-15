@@ -14,11 +14,20 @@ namespace EJ4
 
         private int iDesplazamiento;
 
+        /// <summary>
+        /// Constructor del encriptador cesar.
+        /// </summary>
+        /// <param name="pDesplazamiento">Desplazamiento de las letras</param>
         public EncriptadorCesar(int pDesplazamiento):base("César")
         {
             this.iDesplazamiento = pDesplazamiento;
         }
 
+        /// <summary>
+        /// Encripta una cadena utilizando el encriptador cesar.
+        /// </summary>
+        /// <param name="pCadena">Cadena</param>
+        /// <returns>Cadena encriptada</returns>
         public override string Encriptar(string pCadena)
         {
             string encriptada="";
@@ -40,7 +49,11 @@ namespace EJ4
         }
 
 
-
+        /// <summary>
+        /// Desencripta una cadena utilizando el encriptador cesar.
+        /// </summary>
+        /// <param name="pCadena">Cadena</param>
+        /// <returns>Cadena Desencriptada</returns>
         public override string Desencriptar(string pCadena)
         {
             string encriptada = "";

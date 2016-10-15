@@ -16,6 +16,12 @@ namespace EJ4
         {
         }
 
+
+        /// <summary>
+        /// Encripta una cadena con el algoritmo clasico
+        /// </summary>
+        /// <param name="pCadena">Cadena a encriptar</param>
+        /// <returns>Cadena encriptada</returns>
         public override string Encriptar(string pCadena)
         {
             string encriptada = "";
@@ -60,6 +66,11 @@ namespace EJ4
             return (Array.IndexOf(cAlfabeto, pLetra) / 2).ToString();
         }
 
+        /// <summary>
+        /// Desencripta una cadena con el algoritmo clasico
+        /// </summary>
+        /// <param name="pCadena">Cadena a desencriptar</param>
+        /// <returns>Cadena desencriptada</returns>
         public override string Desencriptar(string pCadena)
         {
             string desencriptada = "";

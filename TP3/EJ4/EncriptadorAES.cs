@@ -14,11 +14,21 @@ namespace EJ4
         {
         }
 
+        /// <summary>
+        /// Encripta una cadena con el algoritmo AES
+        /// </summary>
+        /// <param name="pCadena">Cadena a encriptar</param>
+        /// <returns>Cadena encriptada</returns>
         public override string Encriptar(string pCadena)
         {
             return EncriptarTexto(pCadena); 
         }
 
+        /// <summary>
+        /// Descencripta una cadaena con el algoritmo AES
+        /// </summary>
+        /// <param name="pCadena">Cadena a descencriptar</param>
+        /// <returns>Cadena descencriptada.</returns>
         public override string Desencriptar(string pCadena)
         {
             return DesencriptarTexto(pCadena);

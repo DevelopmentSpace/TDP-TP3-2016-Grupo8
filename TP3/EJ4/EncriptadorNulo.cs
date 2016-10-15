@@ -12,11 +12,21 @@ namespace EJ4
         {
         }
 
+        /// <summary>
+        /// Encripta una cadena con el algoritmo nulo
+        /// </summary>
+        /// <param name="pCadena">Cadena </param>
+        /// <returns>Misma cadena que se ingreso</returns>
         public override string Encriptar(string pCadena)
         {
             return pCadena;
         }
 
+        /// <summary>
+        /// Desencripta una cadena con el algoritmo nulo
+        /// </summary>
+        /// <param name="pCadena">Cadena</param>
+        /// <returns>Misma cadena que se ingreso</returns>
         public override string Desencriptar(string pCadena)
         {
             return pCadena;
