@@ -19,7 +19,7 @@ namespace EJ4
         Dictionary<string, IEncriptador> iEncriptadores = new Dictionary<string, IEncriptador> { };
 
         /// <summary>
-        /// Constructor de la fabrica de encriptadores que agrega todos los encriptadores al diccionario de la clase
+        /// Constructor de la fabrica de encriptadores que agrega todos los encriptadores al diccionario del objeto
         /// </summary>
         private FabricaEncriptadores()
         {
